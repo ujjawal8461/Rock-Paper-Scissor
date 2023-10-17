@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Fira+Code:wght@300&family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Rock Paper Scissor</title>
+</head>
+<body>
+    <div id="main-container">
+
+        <div id="title-box" >
+            <img class="animate__animated animate__fadeInDown" src="Images/title.svg" alt="">
+        </div>
+
+        <div>
+            <img class="animate__animated animate__fadeInUp" id="play-btn" src="Images/play-btn.svg" alt="">
+        </div>
+
+
+
+        <div id="btn-box" >
+            <img class="btn one" src="Images/3 round.svg" alt="">
+            <img class="btn two" src="Images/5 round.svg" alt="">
+            <img class="btn three" src="Images/7 round.svg" alt="">
+        </div> 
+
+
+        <div id="game-box">
+
+            <div id="game-upper-box"  >
+
+                <div class="box" id="player">
+                    
+                    <div id="player-img" >
+                        <img src="Images/rock.png" alt="">
+                    </div>
+                    
+                    <div class="score" ><span id="player-score-display" >0</span>/3</div>
+                </div>
+
+                <span id="match-result" ></span>
+    
+                <div class="box" id="computer">
+                    
+                    <div id="computer-img" >
+                        <img src="Images/rock.png" alt="">
+                    </div>
+                    
+                    <div class="score" ><span id="computer-score-display" >0</span>/3</div>
+                </div>
+
+            </div>
+    
+            <div id="game-lower-box" class="animate__animated animate__fadeInUp">
+                <img src="Images/rock btn.svg" onclick="playerInput(0)">
+                <img src="Images/paper btn.svg" onclick="playerInput(1)">
+                <img src="Images/scissor btn.svg" onclick="playerInput(2)">
+            </div>
+
+        </div>
+
+        
+
+        
+
+        
+    
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>
