@@ -1,81 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Fira+Code:wght@300&family=Poppins:wght@500&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Fira+Code:wght@300&family=Poppins:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="your-integrity-hash"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>Rock Paper Scissor</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="main-container">
+      <div id="title-box">
+        <img
+          class="animate__animated animate__fadeInDown"
+          src="Images/title.svg"
+          alt=""
+        />
+      </div>
 
-        <div id="title-box" >
-            <img class="animate__animated animate__fadeInDown" src="Images/title.svg" alt="">
-        </div>
+      <div id="main-btn-container" class="animate__animated animate__fadeInUp">
+        <div class="main-btn" id="play-btn">Play</div>
+        <div class="main-btn" id="theme-btn">Theme</div>
+      </div>
 
-        <div>
-            <img class="animate__animated animate__fadeInUp" id="play-btn" src="Images/play-btn.svg" alt="">
-        </div>
+      <div id="btn-box">
+        <div class="btn one" onclick="roundCount(3)">3 Round</div>
+        <div class="btn two" onclick="roundCount(5)">5 Round</div>
+        <div class="btn three" onclick="roundCount(7)">7 Round</div>
+      </div>
 
-
-
-        <div id="btn-box" >
-            <img class="btn one" src="Images/3 round.svg" alt="">
-            <img class="btn two" src="Images/5 round.svg" alt="">
-            <img class="btn three" src="Images/7 round.svg" alt="">
-        </div> 
-
-
-        <div id="game-box">
-
-            <div id="game-upper-box"  >
-
-                <div class="box" id="player">
-                    
-                    <div id="player-img" >
-                        <img src="Images/rock.png" alt="">
-                    </div>
-                    
-                    <div class="score" ><span id="player-score-display" >0</span>/3</div>
-                </div>
-
-                <span id="match-result" ></span>
-    
-                <div class="box" id="computer">
-                    
-                    <div id="computer-img" >
-                        <img src="Images/rock.png" alt="">
-                    </div>
-                    
-                    <div class="score" ><span id="computer-score-display" >0</span>/3</div>
-                </div>
-
-            </div>
-    
-            <div id="game-lower-box" class="animate__animated animate__fadeInUp">
-                <img src="Images/rock btn.svg" onclick="playerInput(0)">
-                <img src="Images/paper btn.svg" onclick="playerInput(1)">
-                <img src="Images/scissor btn.svg" onclick="playerInput(2)">
+      <div id="game-box">
+        <div id="game-upper-box" class="animate__animated animate__fadeInDown">
+          <div class="box" id="player">
+            <div id="player-img">
+              <img src="Images/rock.png" alt="" />
             </div>
 
+            <div class="score">
+              Score: <span id="player-score-display">0</span>
+            </div>
+          </div>
+
+          <span id="match-result"></span>
+
+          <div class="box" id="computer">
+            <div id="computer-img">
+              <img src="Images/rock.png" alt="" />
+            </div>
+
+            <div class="score">
+              Score: <span id="computer-score-display">0</span>
+            </div>
+          </div>
         </div>
 
-        
+        <div id="game-lower-box" class="animate__animated animate__fadeInUp">
+          <img src="Images/rock btn.svg" onclick="playerInput(0)" />
+          <img src="Images/paper btn.svg" onclick="playerInput(1)" />
+          <img src="Images/scissor btn.svg" onclick="playerInput(2)" />
+        </div>
+      </div>
 
-        
+      <div id="popup">
+        <div id="inner-popup">
+          <span>Game Over</span>
+          <span id="title-popup">You Win</span>
+        </div>
 
-        
-    
+        <div id="lower-popup">
+          <div onclick="goHome()"><i class="fas fa-home"></i></div>
+          <div onclick="replay()"><i class="fas fa-redo"></i></div>
+        </div>
+      </div>
+
+      <div id="overlay"></div>
+
+      <div id="theme-box">
+        <h1>Change Theme</h1>
+
+        <div id="theme-ctn">
+          <div id="bg-left"><i class="fa-solid fa-angles-left"></i></div>
+          <div id="img-left"><i class="fa-solid fa-caret-left"></i></div>
+
+          <div class="box" id="player-temp">
+            <div id="player-img">
+              <img id="theme-img" src="Images/rock.png" alt="" />
+            </div>
+          </div>
+
+          <div id="img-right"><i class="fa-solid fa-caret-right"></i></div>
+          <div id="bg-right"><i class="fa-solid fa-angles-right"></i></div>
+        </div>
+        <button class="btn one temp" onclick="goHome()">Back</button>
+      </div>
     </div>
-    <script src="script.js"></script>
 
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
